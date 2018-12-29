@@ -1,0 +1,2 @@
+# ichord
+Implement chrod algorithm
