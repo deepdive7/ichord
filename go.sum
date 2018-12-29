@@ -1,0 +1,12 @@
+github.com/bluele/gcache v0.0.0-20171010155617-472614239ac7 h1:NpQ+gkFOH27AyDypSCJ/LdsIi/b4rdnEb1N5+IpFfYs=
+github.com/bluele/gcache v0.0.0-20171010155617-472614239ac7/go.mod h1:8c4/i2VlovMO2gBnHGQPN5EJw+H0lx1u/5p+cgsXtCk=
+github.com/deepdive7/icodec v0.0.0-20181229064913-eb8a496e8660 h1:4IKuWQHIhZOx0nykLkHKJjx5NZPnGOmwURxLjfiYPx8=
+github.com/deepdive7/icodec v0.0.0-20181229064913-eb8a496e8660/go.mod h1:LzggvvPmZVSPb5Qk+Dw3H+Ld1DMMuUawezfSYTZ1pWI=
+github.com/deepdive7/ilog v0.0.0-20181228054156-34693c3f35b6 h1:6ciyzs8VVlg8i0QRMwqnyEW1iHVEUtsjJQln650nivc=
+github.com/deepdive7/ilog v0.0.0-20181228054156-34693c3f35b6/go.mod h1:Rol+n86QEFDsN5LmxItWW90V+Ha65LkVZwMSEYylDog=
+github.com/deepdive7/iveil v0.0.0-20181229070012-9363743be2ae h1:2iiklOLPA4WQhVYfItv55kdDLe58qIhlqYw0krB4dnI=
+github.com/deepdive7/iveil v0.0.0-20181229070012-9363743be2ae/go.mod h1:3zyRoDWyMYWkG29mZIyPIqynhKQowOCttmHHgFBrc3E=
+github.com/google/uuid v1.1.0 h1:Jf4mxPC/ziBnoPIdpQdPJ9OeiomAUHLvxmPRSPH9m4s=
+github.com/google/uuid v1.1.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1 h1:lYpkrQH5ajf0OXOcUbGjvZxxijuBwbbmlSxLiuofa+g=
+github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1/go.mod h1:pD8RvIylQ358TN4wwqatJ8rNavkEINozVn9DtGI3dfQ=
