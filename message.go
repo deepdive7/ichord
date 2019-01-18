@@ -3,45 +3,30 @@ package ichord
 import (
 	"bytes"
 	"encoding/json"
-
-	"github.com/deepdive7/icodec"
 )
 
 type Purpose int
 
 // Message types
 const (
-	NODE_JOIN    Purpose = iota // A node is joining the network
-	NODE_LEAVE                  // A node is leaving the network
-	HEART_BEAT                  // Heartbeat signal
-	NODE_NOTIFY                 // Notified of node existense
-	NODE_ANN                    // A node has been announced
-	SUCC_REQ                    // A request for a nodes successor
-	PRED_REQ                    // A request for a nodes predecessor
-	STATUS_ERROR                // Response indicating an error
-	STATUS_OK                   // Simple status OK response
+	_           Purpose = iota
+	NodeJoin            // A node is joining the network
+	NodeLeave           // A node is leaving the network
+	HeartBeat           // Heartbeat signal
+	NodeNotify          // Notified of node existence
+	NodeAnn             // A node has been announced
+	SucReq              // A request for a nodes successor
+	PreReq              // A request for a nodes predecessor
+	StatusError         // Response indicating an error
+	StatusOk            // Simple status OK response
 )
 
-// Helper utilies for creating specific messages
-
-func nodeJoinMessage(sender *Node, key UUID) *Message {
-	return NewMessage(sender, NODE_JOIN, key, nil)
-}
-
-func heartBeatMessage(sender *Node, key UUID) *Message {
-	return NewMessage(sender, HEART_BEAT, key, nil)
-}
-
-func notifyMessage(sender *Node, key UUID) *Message {
-	return NewMessage(sender, NODE_NOTIFY, key, nil)
-}
-
 func statusOKMessage(sender *Node, key UUID) *Message {
-	return NewMessage(sender, STATUS_OK, key, nil)
+	return NewMessage(sender, StatusOk, key, nil)
 }
 
 func statusErrMessage(sender *Node, key UUID, err error) *Message {
-	return NewMessage(sender, STATUS_ERROR, key, []byte(err.Error()))
+	return NewMessage(sender, StatusError, key, []byte(err.Error()))
 }
 
 // Create a new message
@@ -97,9 +82,9 @@ func (msg *Message) Sender() Node {
 	return *msg.sender
 }
 
-// Extract the message body into the given value (must be a pointer), using the provided codec
-func (msg *Message) DecodeBody(codec icodec.Codec, v interface{}) error {
-	return codec.NewDecoder(bytes.NewBuffer(msg.body)).Decode(v)
+// Extract the message body into the given value (must be a pointer), using the provided coder
+func (msg *Message) DecodeBody(coder Coder, v interface{}) error {
+	return coder.NewDecoder(bytes.NewBuffer(msg.body)).Decode(v)
 }
 
 func (msg *Message) String() string {

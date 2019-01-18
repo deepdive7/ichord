@@ -2,10 +2,9 @@ package ichord
 
 import (
 	"bytes"
+	"fmt"
 	"net"
 	"sync"
-
-	"github.com/deepdive7/icodec"
 
 	"github.com/google/uuid"
 )
@@ -43,7 +42,7 @@ func (n *Node) IsResponsible(id UUID) bool {
 }
 
 func (n *Node) String() string {
-	return ""
+	return fmt.Sprintf("%s:%d", n.Host, n.Port)
 }
 
 func NewID() UUID {
@@ -70,8 +69,8 @@ func Equal(a, b UUID) bool {
 type sock struct {
 	host string
 	conn net.Conn
-	enc  icodec.Encoder
-	dec  icodec.Decoder
+	enc  Encoder
+	dec  Decoder
 }
 
 // write to the sock via an encoder

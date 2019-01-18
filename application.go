@@ -3,10 +3,14 @@ package ichord
 import (
 	"os"
 
+	"github.com/deepdive7/icfg"
 	"github.com/deepdive7/ilog"
 )
 
 type Application interface {
+	ID() UUID
+	Startup(args *icfg.Config) error
+	ShutDown() error
 	// When a error occurs in the functionality of the DHT
 	OnError(err error)
 
@@ -38,6 +42,14 @@ type LogApp struct {
 	log ilog.Logger
 }
 
+func (la *LogApp) ID() UUID {
+	return la.id
+}
+
+func (la *LogApp) Startup(cfg *icfg.Config) error {
+	return nil
+}
+
 func (la *LogApp) OnError(err error) {
 	la.log.Error(err.Error())
 }
@@ -61,4 +73,9 @@ func (la *LogApp) OnNodeExit(node *Node) {
 
 func (la *LogApp) OnHeartbeat(node *Node) {
 	la.log.Info("OnHeartbeat:", node.String())
+}
+
+func (la *LogApp) ShutDown() error {
+	la.log = nil
+	return nil
 }

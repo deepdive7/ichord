@@ -3,8 +3,16 @@ package ichord
 import (
 	"bytes"
 	"errors"
+	"log"
 	"math/rand"
 )
+
+func handleErr(f func()error) {
+	err := f()
+	if err != nil {
+		log.Println(err.Error())
+	}
+}
 
 func NewError(err string) error {
 	return errors.New(err)
